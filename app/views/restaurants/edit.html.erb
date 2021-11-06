@@ -1,0 +1,105 @@
+<%= render "shared/second-header"%>
+<div class="items-sell-contents">
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">店舗の情報を入力</h2>
+    <%= form_with model: @restaurant, local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+
+
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        店舗画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+    </div>
+
+    <%# 店舗名と店舗説明 %>
+    <div class="new-items">
+      <div class="weight-bold-text">
+        店舗名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"店舗名（必須 40文字まで)", maxlength:"40" %>
+      
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          店舗のアピールポイント
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :appeal, class:"items-text", id:"item-info", placeholder:"店舗の詳細な情報やアピールポイントをご自由にご記入ください。",rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+    <%# /店舗名と店舗説明 %>
+
+    <%# 店舗の詳細 %>
+    <div class="items-explain">
+      <div class="weight-bold-text">
+        喫煙室の有無
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :smoking, class:"items-text", id:"item-name", placeholder:"喫煙室の有無、灰皿の有無、店内喫煙の詳細をご記入ください", maxlength:"40" %>
+      </div>
+      <div class="items-explain">
+      <div class="weight-bold-text">
+        最寄駅
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :near_station, class:"items-text", id:"item-name", placeholder:"最寄駅や、最寄りのバス停、店舗までの到達時間をご記入ください", maxlength:"40" %>
+      </div>
+      
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          定休日の詳細
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :holiday, class:"items-text", id:"item-info", placeholder:"定休日の詳細をご記入ください" ,rows:"7" ,maxlength:"100" %>
+      </div>
+    <%# /店舗の詳細 %>
+
+    <%# active_hashの選択欄 %>
+    <div class="items-detail">
+      <div class="weight-bold-text question-text">
+        </span>
+      </div>
+
+      <div class="form">
+      
+        <div class="weight-bold-text">
+          開店時間
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:opening_id,Opening.all, :id, :name, {}, {class:"select-box" }) %>
+
+        <div class="weight-bold-text">
+          閉店時間
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:clossing_id, Clossing.all, :id, :name, {}, {class:"select-box" }) %>
+
+      </div>
+    </div>
+    <%# /active_modelの選択欄 %>
+
+    
+
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "編集する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+
+ 
+</div>
+
+<%= render "shared/footer"%>

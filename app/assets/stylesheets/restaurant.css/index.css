@@ -1,0 +1,138 @@
+.main {
+  width: 100vw;
+  justify-content: center;
+  padding: 5vh 15vw;
+  color: #fff;
+}
+
+
+.item-contents{
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10vh 0;
+    width: 100%;
+}
+
+
+
+
+
+.item-contents>.subtitle {
+  font-size: 3vh;
+  margin: 1vh 0;
+  text-decoration: none;
+  color: #3ccace;
+  font-weight: bold;
+}
+
+.item-lists{
+  width: 800px;
+  padding: 1vw;
+  background-color: #FFF;
+}
+
+.item-lists>.list{
+  
+  padding: 1vw;
+  background-color: #FFF;
+  height: 400px;
+ 
+ 
+}
+
+
+
+.items-container{
+  height: 400px;
+  display: flex;
+ 
+
+}
+
+.items-image-content{
+ height: 400px;
+ width: 400px;
+}
+
+.items-weight-contents{
+  height: 400px;
+  width: 400px;
+}
+
+
+.list-name{
+  height: 100px;
+  width: 100px;
+
+}
+.other{
+  height: 50px;
+  width: 100vw;
+  display: flex;
+  
+}
+
+.list-station{
+  height: 50px;
+  width: 50%;
+  
+}
+
+.smoking{
+  height: 50px;
+  width: 50%;
+  
+}
+
+.time{
+  height: 50px;
+  width: 100vw;
+  display: flex;
+  
+}
+.opening{
+  height: 50px;
+  width: 50%;
+}
+
+.clossing{
+  height: 50px;
+  width: 50%;
+}
+
+.holiday{
+  height: 100px;
+  width: 100%;
+}
+
+
+.appeal{
+  height: 100px;
+  width: 100vw;
+  
+}
+
+.purchase-btn {
+  width: 120px;
+  background: #3ccace;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+}
+
+.purchase-btn-text {
+  color: #fff;
+  display: block;
+  font-size: 18px;
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+
+.purchase-btn-icon {
+  width: 60%;
+}
