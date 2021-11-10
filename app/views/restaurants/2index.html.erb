@@ -48,43 +48,49 @@
             <% end %>
          </li> 
        <% end %>
-     </ul>
 
             <% else %>
-            <div class="container">        
-            <%= link_to '#' do %>             
-              <div class="row">
-                <div class="col-4">
+            <li class="list">           
+            <%= link_to '#' do %>
+              
+              <div class="items-container">
+                  <div class="items-image-content">
                     <%= image_tag "/sample1.png", class: "item-image"%>
-                </div>
-                <div clas="col-8">
-                  <p class="h2">
+                  </div>
+
+                <div class="items-weight-contents">
+                
+                  <div class="list-name">
                     例の店
-                  </p>
-                  <p>カテゴリ</p>
-                  <hr>
-                  <p>喫煙室あり</p>
-                  <p>年中無休</p>
-                  <div class="row">
-                    <p class="col">
-                      営業時間
-                    </p>
-                    <p class="col">
-                      09:00
-                    </p>
-                    </p class="col">~</p>
-                    <p class="col">
-                      22:00
-                    </p>
                   </div>
+                  
+                  <div class="other">
+                    <div class="list-station">例の駅
+                    </div>
+                    <div class="smoking">喫煙室有り
+                    </div>
                   </div>
-                  <hr>
+
+                  <div class="time">
+                  開店時間
+                    <div class="opening">09:00
+                    </div>
+                    閉店時間
+                    <div class="clossing">22:00
+                    </div>
+                  </div>
+                  <div class="holiday">年中無休
+                  </div>
+                  <div class="appeal">是非ともお越しください
                 </div>
 
               </div>  
                   </div>
-            <% end %>
+              <% end%>
+         </li> 
+
      <% end %>
+     </ul>
 
     </div>
   </div>
