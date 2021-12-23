@@ -6,52 +6,55 @@
     <div class="subtitle" >
       店舗一覧
     </div>
-    <ul class='item-lists'>
+    <div class="content1">
+      <ul>
 
-    <% if @restaurant.exists?%>
+        <% if @restaurant.exists?%>
 
-       <% @restaurant.each do |restaurant|%>
-         <li class="list">           
-            <%= link_to restaurant_path(restaurant.id) do%>
-              <div class="items-container">
+         <% @restaurant.each do |restaurant|%>
+       
+           <li">           
+              <%= link_to restaurant_path(restaurant.id) do%>
+                <div class="container">
+                <div class="row">
 
-                  <div class="items-image-content">
-                    <%= image_tag restaurant.image, class: "item-image"%>
-                  </div>
+                    <div class="col">
+                      <%= image_tag restaurant.image, class:"images" %>
+                    </div>
 
-                <div class="items-weight-contents">
+                    <div class="col">
                 
-                  <div class="list-name">
-                    <%= restaurant.name%>
-                  </div>
+                      <div class="h2">
+                        <%= restaurant.name%>
+                      </div>
+                      <hr>
                   
-                  <div class="other">
-                    <div class="list-station"><%= restaurant.near_station %>
-                    </div>
-                    <div class="smoking"><%= restaurant.smoking %>
-                    </div>
+                  
+                      <p><%= restaurant.near_station %></p>
+                      <p><%= restaurant.smoking %></p>
+                  
+
+                      <div class="row">
+                        <p class="col">営業時間</p>
+                        <p class="col"><%= restaurant.opening.name %></p>
+                        <p class="col">~</p>
+                        <p class="col"><%= restaurant.closing.name %></p>
+                      </div>
+                      <p class="holiday"><%= restaurant.holiday %></p>
+                      <p><%= restaurant.appeal%></p>
                   </div>
 
-                  <div class="time">
-                    <div class="opening"><%= restaurant.opening.name %>
-                    </div>
-                    <div class="clossing"><%= restaurant.clossing.name %> 
-                    </div>
-                  </div>
-                  <div class="holiday"><%= restaurant.holiday %>
-                  </div>
                 </div>
+                </div>  
+              <% end %>
+           </li>    
 
-                  <div class="appeal"><%= restaurant.appeal%>
-                  </div>
-              </div>  
-            <% end %>
-         </li> 
-       <% end %>
-     </ul>
+        <% end %>
+      </ul>
+    </div>
 
-            <% else %>
-            <div class="container">        
+    <% else %>
+      <div class="container">        
             <%= link_to '#' do %>             
               <div class="row">
                 <div class="col-4">
@@ -83,8 +86,8 @@
 
               </div>  
                   </div>
-            <% end %>
-     <% end %>
+    <% end %>
+    <% end %>
 
     </div>
   </div>

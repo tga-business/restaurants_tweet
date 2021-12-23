@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root to: "restaurants#index"
   resources :restaurants do
-    resources :tweet, only: [:index, :create] 
-    resources :comment, only: [:index, :create]
+    resources :daily, only: [:new, :create, :edit,:update, :show, :destroy] 
+    resources :comment, only: [ :create]
     
   end
 
