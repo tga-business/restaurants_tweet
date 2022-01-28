@@ -1,8 +1,8 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only:[:show,:edit,:update,:destroy]
-  before_action :authenticate_user!, except: [:index,:show]
+  before_action :authenticate_user!, except: [:index,:show,]
 
-   before_action :move_to_index, except:[:index, :new, :create,:show]
+   before_action :move_to_index, except:[:index, :new, :create,:show, :search]
   def index
     @restaurant =Restaurant.includes(:user).order("created_at DESC")
   end
@@ -12,7 +12,8 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    if @restaurant.save
+    if @restaurant.valid?
+      @restaurant.save
       redirect_to root_path
     else
       render :new
@@ -27,7 +28,8 @@ class RestaurantsController < ApplicationController
     
   end
 
-  def update
+  def update 
+
     if @restaurant.update(restaurant_params)
       redirect_to restaurant_path
     else
@@ -40,7 +42,20 @@ class RestaurantsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+
+    if params[:q]&.dig(:name)
+
+      squished_keywords = params[:q][:name].squish
+
+      params[:q][:name_cont_any] = squished_keywords.split(" ")
+    end
+    @q =Restaurant.ransack(params[:q])
+    @restaurant =@q.result
+  end  
+
   private
+
 
   def restaurant_params
     params.require(:restaurant).permit(:name, :near_station, :image, :appeal, :smoking, :opening_id, :closing_id, :holiday).merge(user_id: current_user.id)
@@ -53,7 +68,7 @@ class RestaurantsController < ApplicationController
   def move_to_index
 
     unless user_signed_in? && @restaurant.user_id == current_user.id
-      redirect_to action: :index
+      redirect_to root_path
     end
   end
 end

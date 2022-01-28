@@ -4,7 +4,7 @@ class CreateRestaurants < ActiveRecord::Migration[6.0]
       t.string :name,               null: false
       t.string :near_station,       null: false
       t.integer :opening_id,        null: false
-      t.integer :closing_id,       null: false
+      t.integer :closing_id,        null: false
       t.string :holiday,            null: false
       t.string :smoking,            null: false
       t.string :appeal,             null: false

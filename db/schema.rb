@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_02_101835) do
+ActiveRecord::Schema.define(version: 2021_11_06_094657) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -31,16 +31,6 @@ ActiveRecord::Schema.define(version: 2021_12_02_101835) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-  end
-
-  create_table "dailies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "tweet", null: false
-    t.bigint "user_id"
-    t.bigint "restaurants_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["restaurants_id"], name: "index_dailies_on_restaurants_id"
-    t.index ["user_id"], name: "index_dailies_on_user_id"
   end
 
   create_table "restaurants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -76,7 +66,5 @@ ActiveRecord::Schema.define(version: 2021_12_02_101835) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "dailies", "restaurants", column: "restaurants_id"
-  add_foreign_key "dailies", "users"
   add_foreign_key "restaurants", "users"
 end
