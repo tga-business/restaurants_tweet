@@ -37,11 +37,11 @@ ActiveRecord::Schema.define(version: 2021_11_06_094657) do
     t.string "name", null: false
     t.string "near_station", null: false
     t.integer "opening_id", null: false
-    t.integer "clossing_id", null: false
+    t.integer "closing_id", null: false
     t.string "holiday", null: false
     t.string "smoking", null: false
     t.string "appeal", null: false
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_restaurants_on_user_id"
@@ -66,4 +66,5 @@ ActiveRecord::Schema.define(version: 2021_11_06_094657) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "restaurants", "users"
 end

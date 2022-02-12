@@ -7,14 +7,17 @@ class Restaurant < ApplicationRecord
     validates :smoking
     validates :near_station
     validates :holiday
-    end
+    validates :image
+  end
   
-    with_options numericality: { other_than: 1 } do
+  with_options numericality: { other_than: 1 } do
       validates :opening_id
-      validates :clossing_id
-    end
+      validates :closing_id
+  end
+
     belongs_to :user
     belongs_to :opening
-    belongs_to :clossing
+    belongs_to :closing
     has_one_attached :image
+   
 end

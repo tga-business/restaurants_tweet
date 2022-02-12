@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -67,5 +69,4 @@ gem 'pry-rails'
 gem 'active_hash'
 gem 'payjp'
 gem "aws-sdk-s3", require: false
-
- 
+ gem 'ransack'

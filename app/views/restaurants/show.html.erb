@@ -1,44 +1,43 @@
 <%= render "shared/header" %>
 
 <%# 商品の概要 %>
-<div class="item-show">
+<div class="container">
   <div class="item-box">
-    <h2 class="name">
+
+    <div class="h1">
       <%= @restaurant.name %>
-    </h2>
+    </div> 
+
     <div class="item-img-content">
-      <%= image_tag @restaurant.image ,class:"item-box-img" %>
-  
-    </div>
-    <div class="item-price-box">
-      <span class="item-price">
-        ¥ <%= @restaurant.appeal %>
-      </span>
-      <span class="item-postage">
-        <%= @restaurant.smoking %>
-      </span>
+      <%= image_tag @restaurant.image ,class:"images" %>  
     </div>
 
     <% if user_signed_in? &&  current_user.id == @restaurant.user.id%>
         
-        
+      <div class="row">
+        <%= link_to "店舗内容の編集", edit_restaurant_path(@restaurant.id), class:"col"%>
+          <p class="or-text">or</p>
+        <%= link_to "削除", restaurant_path(@restaurant.id), method: :delete,class:"col" %>
+      </div>
 
-            <%= link_to "店舗内容の編集", edit_restaurant_path(@restaurant.id),  class: "item-red-btn" %>
-            <p class="or-text">or</p>
-            <%= link_to "削除", restaurant_path(@restaurant.id), method: :delete, class:"item-destroy" %>
+     
 
-        <% else %>
-        
-        <%#= link_to "日記投稿に進む", restaurant_tweet_path(@restaurant.id) ,class:"item-red-btn"%>
-  
-
-        
+    <% else %>
 
     <% end %>
 
-    <
+    
+    
     <table class="detail-table">
       <tbody>
+      <tr>
+          <th class="detail-item">当店の特徴</th>
+          <td class="detail-value"><%= @restaurant.appeal %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">最寄り駅</th>
+          <td class="detail-value"><%= @restaurant.near_station %></td>
+        </tr>
         <tr>
           <th class="detail-item">喫煙室の有無</th>
           <td class="detail-value"><%= @restaurant.smoking %></td>
@@ -53,48 +52,17 @@
         </tr>
         <tr>
           <th class="detail-item">閉店時間</th>
-          <td class="detail-value"><%= @restaurant.clossing.name %></td>
+          <td class="detail-value"><%= @restaurant.closing.name %></td>
         </tr>
       </tbody>
 
     </table>
-    <div class="option">
-      <div class="favorite-btn">
-        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
-      </div>
-      <div class="report-btn">
-        <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-        <span>不適切な商品の通報</span>
+
+    <div class="row">
+      <div class="col">
       </div>
     </div>
-  </div>
-  <%# /商品の概要 %>
-
-  <%#= 日記の画像を表示予定 %>
-
-  <div class="comment-box">
-    <form>
-      <textarea class="comment-text"></textarea>
-      <p class="comment-warn">
-        相手のことを考え丁寧なコメントを心がけましょう。
-        <br>
-        不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      </p>
-      <button type="submit" class="comment-btn">
-        <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-        <span>コメントする<span>
-      </button>
-    </form>
-  </div>
-  <div class="links">
-    <a href="#" class="change-item-btn">
-      ＜ 前の商品
-    </a>
-    <a href="#" class="change-item-btn">
-      後ろの商品 ＞
-    </a>
-  </div>
+    
  
   
 </div>

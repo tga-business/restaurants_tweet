@@ -1,4 +1,4 @@
-class Clossing < ActiveHash::Base
+class Closing < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
     { id: 2, name: '00:00' },
