@@ -69,4 +69,5 @@ gem 'pry-rails'
 gem 'active_hash'
 gem 'payjp'
 gem "aws-sdk-s3", require: false
- gem 'ransack'
+gem 'ransack'
+gem 'rename'
