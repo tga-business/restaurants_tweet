@@ -4,39 +4,40 @@
 
 <% @restaurant.each do |restaurant|%>
        
-           <li>           
-              <%= link_to restaurant_path(restaurant.id) do%>
-                <div class="container">
-                <div class="row">
+  <li>           
+    <%= link_to restaurant_path(restaurant.id) do%>
+      <div class="container">
+        <div class="row">
 
-                    <div class="col">
-                      <%= image_tag restaurant.image, class:"images" %>
-                    </div>
+          <div class="col">
+            <%= image_tag restaurant.image, class:"images" %>
+          </div>
 
-                    <div class="col">
+            <div class="col">
                 
-                      <div class="h2">
-                        <%= restaurant.name%>
-                      </div>
-                      <hr>
-                  
-                  
-                      <p><%= restaurant.near_station %></p>
-                      <p><%= restaurant.smoking %></p>
+              <div class="h2">
+                <%= restaurant.name%>
+              </div>
+              <hr>
+                                    
+              <p><%= restaurant.near_station %></p>
+              <p><%= restaurant.smoking %></p>
                   
 
-                      <div class="row">
-                        <p class="col">営業時間</p>
-                        <p class="col"><%= restaurant.opening.name %></p>
-                        <p class="col">~</p>
-                        <p class="col"><%= restaurant.closing.name %></p>
-                      </div>
-                      <p><%= restaurant.holiday %></p>
-                      <p><%= restaurant.appeal%></p>
-                  </div>
+              <div class="row">
+                <p class="col">営業時間</p>
+                <p class="col"><%= restaurant.opening.name %></p>
+                <p class="col">~</p>
+                <p class="col"><%= restaurant.closing.name %></p>
+              </div>
 
-                </div>
-                </div>  
-              <% end %>
-           </li>  
+              <p><%= restaurant.holiday %></p>
+              <p><%= restaurant.appeal%></p>
+              
+            </div>
+
+                
+        </div>  
+      <% end %>
+    </li>  
 <% end %>           
