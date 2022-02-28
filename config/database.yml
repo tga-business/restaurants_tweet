@@ -19,14 +19,14 @@ default: &default
 
 development:
   <<: *default
-  database: restaurant_tweet_development
+  database: restaurants-tweet_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: restaurant_tweet_test
+  database: restaurants-tweet_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: restaurant_tweet_production
-  username: restaurant_tweet
-  password: <%= ENV['restaurant_tweet_DATABASE_PASSWORD'] %>
+  database: restaurants_tweet_production
+  username: restaurants_tweet
+  password: <%= ENV['restaurants_tweet_DATABASE_PASSWORD'] %>

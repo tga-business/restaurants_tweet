@@ -1,5 +1,5 @@
 {
-  "name":"restaurant_tweet",
+  "name":"restaurants_tweet",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0-alpha",
@@ -11,8 +11,8 @@
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^4.2.1"
-    },  
-    "engines" : {
-      "node": "14.17.0" 
-    }
-   }
+  },
+  "engines" : {
+    "node": "14.17.0"
+  }  
+}
