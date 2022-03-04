@@ -3,91 +3,103 @@
     <div class="item-contents">
 
     
-    <div class="subtitle" >
-      店舗一覧
-    </div>
-    <div class="content1">
-      <ul>
+      <div class="subtitle" >
+        店舗一覧
+      </div>
+        <div class="content1">
+          <ul>
 
-        <% if @restaurant.exists?%>
+            <% if @restaurant.exists?%>
 
-         <% @restaurant.each do |restaurant|%>
+              <% @restaurant.each do |restaurant|%>
        
-           <li>           
-              <%= link_to restaurant_path(restaurant.id) do%>
-                <div class="container">
-                <div class="row">
+                <li>           
+                  <%= link_to restaurant_path(restaurant.id) do%>
+                    <div class="container">
 
-                    <div class="col">
-                      <%= image_tag restaurant.image, class:"images" %>
-                    </div>
+                      <div class="row">  
 
-                    <div class="col">
+                        <div class="col">
+                          <%= image_tag restaurant.image, class:"images" %>
+                        </div>
+
+                          <div class="col">
                 
-                      <div class="h2">
-                        <%= restaurant.name%>
-                      </div>
-                      <hr>
+                            <div class="h2">
+                              <%= restaurant.name%>
+                            </div>
+                            <hr>
                   
                   
-                      <p><%= restaurant.near_station %></p>
-                      <p><%= restaurant.smoking %></p>
+                              <p><%= restaurant.near_station %></p>
+                              <p><%= restaurant.smoking %></p>
                   
 
-                      <div class="row">
-                        <p class="col">営業時間</p>
-                        <p class="col"><%= restaurant.opening.name %></p>
-                        <p class="col">~</p>
-                        <p class="col"><%= restaurant.closing.name %></p>
-                      </div>
-                      <p><%= restaurant.holiday %></p>
-                      <p><%= restaurant.appeal%></p>
-                  </div>
+                            <div class="row">
+                              <p class="col">営業時間</p>
+                              <p class="col"><%= restaurant.opening.name %></p>
+                              <p class="col">~</p>
+                              <p class="col"><%= restaurant.closing.name %></p>
+                            </div>
+                            <p><%= restaurant.holiday %></p>
+                            <p><%= restaurant.appeal%></p>
+                          </div>
 
-                </div>
-                </div>  
+                      </div>
+
+                    </div>  
+
+                  <% end %>
+                </li>    
+
               <% end %>
-           </li>    
+          </ul>
 
-        <% end %>
-      </ul>
-    </div>
+            <% else %>
 
-    <% else %>
-      <div class="container">        
-            <%= link_to '#' do %>             
-              <div class="row">
-                <div class="col-4">
-                    <%= image_tag "sample1.png", class: "item-image"%>
+              <%= link_to '/' do %> 
+
+               <div class="container">
+
+                <div class="row">  
+
+                  <div class="col">
+                    <%= image_tag "sample1.png", class: "images"%>
+                  </div>
+
+                  <div class="col">
+                
+                    <div class="h2">
+                      <p>例店</p>
+                    </div>
+                    <hr>
+                  
+                  
+                    <p>例駅</p>
+                    <p>喫煙席無し</p>
+                  
+
+                    <div class="row">
+                      <p class="col">営業時間</p>
+                      <p class="col">09:00</p>
+                      <p class="col">~</p>
+                      <p class="col">22:00</p>
+                    </div>
+                      <p>祝日</p>
+                      <p>当店自慢のオムライスです</p>
+                  </div>
+
                 </div>
-                <div clas="col-8">
-                  <p class="h2">
-                    例の店
-                  </p>
-                  <p>カテゴリ</p>
-                  <hr>
-                  <p>喫煙室あり</p>
-                  <p>年中無休</p>
-                  <div class="row">
-                    <p class="col">
-                      営業時間
-                    </p>
-                    <p class="col">
-                      09:00
-                    </p>
-                    </p class="col">~</p>
-                    <p class="col">
-                      22:00
-                    </p>
-                  </div>
-                  </div>
-                  <hr>
-                </div>
 
-              </div>  
-                  </div>
-    <% end %>
-    <% end %>
+               </div>  
+              <% end %>
+
+            </div>  
+          <% end %>
+        </div>
+
+
+      </div>
 
     </div>
   </div>
